@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kunai.fi — Button Component</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#F4FFB0',
+              100: '#EAFF66',
+              200: '#E0FF33',
+              300: '#D5FF00',
+              400: '#BFFF00',
+              500: '#99CC00',
+              600: '#739900',
+              700: '#4D6600',
+              800: '#263300',
+              900: '#0D1100',
+            },
+            neutral: {
+              50:  '#F8FAF0',
+              100: '#F0F4E0',
+              200: '#E2E8C8',
+              300: '#C8D4A0',
+              400: '#99A878',
+              500: '#6B7A50',
+              600: '#4D5A38',
+              700: '#354028',
+              800: '#1C2010',
+              850: '#141708',
+              900: '#0D0F0A',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
+          animation: {
+            'spin-fast': 'spin 0.65s linear infinite',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-neutral-900 text-neutral-300 font-sans antialiased min-h-screen">
+
+  <!-- ── Top Nav ── -->
+  <nav class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-900/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-black text-brand-400 tracking-tight">Kunai<span class="text-neutral-50">.fi</span></span>
+        <span class="hidden sm:block text-neutral-700">/</span>
+        <span class="hidden sm:block text-sm font-semibold text-neutral-500">Button</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="btn-icon btn-outline-base h-8 w-8 rounded-lg text-neutral-400 hover:text-brand-400" title="Toggle theme">
+          <svg class="dark:block hidden w-4 h-4" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.3 3.3l1 1M11.7 11.7l1 1M3.3 12.7l1-1M11.7 4.3l1-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg class="dark:hidden block w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M14 9.5A6 6 0 016.5 2 6 6 0 1014 9.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="#" class="btn-primary-base h-8 px-4 text-sm rounded-lg flex items-center gap-1.5 font-bold">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7h14M5 4V2M11 4V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Connect
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+    <!-- ── Hero ── -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-black text-neutral-50 tracking-tight">Button</h1>
+        <p class="mt-2 text-neutral-500 text-sm sm:text-base max-w-md">Displays a button or a component that looks like a button. Supports 5 variants, 5 sizes, icon placement, and interactive states.</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="chip-brand">5 Variants</span>
+        <span class="chip-blue">5 Sizes</span>
+        <span class="chip-amber">4 States</span>
+      </div>
+    </div>
+
+    <!-- ── Variants ── -->
+    <section>
+      <h2 class="section-heading">Variants</h2>
+      <p class="section-desc">Use <code>variant</code> to set the visual style. Primary is the highest emphasis action.</p>
+
+      <!-- Preview -->
+      <div class="preview-card">
+        <div class="flex flex-wrap gap-3 items-center">
+          <button class="btn btn-primary btn-md">Primary</button>
+          <button class="btn btn-secondary btn-md">Secondary</button>
+          <button class="btn btn-outline btn-md">Outline</button>
+          <button class="btn btn-ghost btn-md">Ghost</button>
+          <button class="btn btn-danger btn-md">Danger</button>
+        </div>
+      </div>
+
+      <!-- Code -->
+      <div class="code-block">
+        <pre><code><span class="code-comment">&lt;!-- Primary --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-str">"btn btn-primary btn-md"</span><span class="code-tag">&gt;</span>Primary<span class="code-tag">&lt;/button&gt;</span>
+
+<span class="code-comment">&lt;!-- Secondary --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-str">"btn btn-secondary btn-md"</span><span class="code-tag">&gt;</span>Secondary<span class="code-tag">&lt;/button&gt;</span>
+
+<span class="code-comment">&lt;!-- Outline --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-str">"btn btn-outline btn-md"</span><span class="code-tag">&gt;</span>Outline<span class="code-tag">&lt;/button&gt;</span>
+
+<span class="code-comment">&lt;!-- Ghost --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-str">"btn btn-ghost btn-md"</span><span class="code-tag">&gt;</span>Ghost<span class="code-tag">&lt;/button&gt;</span>
+
+<span class="code-comment">&lt;!-- Danger --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-str">"btn btn-danger btn-md"</span><span class="code-tag">&gt;</span>Danger<span class="code-tag">&lt;/button&gt;</span></code></pre>
+      </div>
+    </section>
+
+    <!-- ── Sizes ── -->
+    <section>
+      <h2 class="section-heading">Sizes</h2>
+      <p class="section-desc">Five sizes from <code>xs</code> to <code>xl</code>. The default is <code>md</code>.</p>
+      <div class="preview-card">
+        <div class="flex flex-wrap gap-3 items-end">
+          <div class="flex flex-col items-center gap-2">
+            <button class="btn btn-primary btn-xs">Button</button>
+            <span class="size-label">xs</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <button class="btn btn-primary btn-sm">Button</button>
+            <span class="size-label">sm</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <button class="btn btn-primary btn-md">Button</button>
+            <span class="size-label">md ★</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <button class="btn btn-primary btn-lg">Button</button>
+            <span class="size-label">lg</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <button class="btn btn-primary btn-xl">Button</button>
+            <span class="size-label">xl</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── States ── -->
+    <section>
+      <h2 class="section-heading">States</h2>
+      <p class="section-desc">Hover over buttons to see interactive states. Use <code>disabled</code> attribute and <code>btn-loading</code> class.</p>
+      <div class="preview-card">
+        <div class="flex flex-wrap gap-4 items-start">
+
+          <div class="flex flex-col gap-4 min-w-0">
+            <p class="text-xs font-bold text-neutral-600 uppercase tracking-widest">Primary</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button class="btn btn-primary btn-md">Default</button>
+              <button class="btn btn-primary btn-md opacity-100 bg-brand-300">Hover</button>
+              <button class="btn btn-primary btn-md scale-95 bg-brand-200">Active</button>
+              <button class="btn btn-primary btn-md" disabled>Disabled</button>
+              <button class="btn btn-primary btn-md btn-loading">
+                <span class="spinner spinner-dark"></span>
+                Loading
+              </button>
+            </div>
+          </div>
+
+          <div class="hidden sm:block w-px self-stretch bg-neutral-800"></div>
+
+          <div class="flex flex-col gap-4 min-w-0">
+            <p class="text-xs font-bold text-neutral-600 uppercase tracking-widest">Secondary</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button class="btn btn-secondary btn-md">Default</button>
+              <button class="btn btn-secondary btn-md bg-brand-400/10">Hover</button>
+              <button class="btn btn-secondary btn-md bg-brand-400/20 scale-95">Active</button>
+              <button class="btn btn-secondary btn-md" disabled>Disabled</button>
+              <button class="btn btn-secondary btn-md btn-loading">
+                <span class="spinner spinner-brand"></span>
+                Loading
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Icons ── -->
+    <section>
+      <h2 class="section-heading">With Icons</h2>
+      <p class="section-desc">Add icons before or after the label, or use icon-only buttons for compact actions.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Leading -->
+        <div class="preview-card">
+          <p class="text-xs font-bold text-neutral-600 uppercase tracking-widest mb-4">Leading Icon</p>
+          <div class="flex flex-col gap-2.5">
+            <button class="btn btn-primary btn-md w-full">
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 6h10M5 4l-2 2 2 2M13 10H3M11 8l2 2-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Swap Tokens
+            </button>
+            <button class="btn btn-primary btn-md w-full">
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7h14M5 4V2M11 4V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Connect Wallet
+            </button>
+            <button class="btn btn-secondary btn-md w-full">
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Add Liquidity
+            </button>
+            <button class="btn btn-outline btn-md w-full">
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Pool
+            </button>
+          </div>
+        </div>
+
+        <!-- Trailing -->
+        <div class="preview-card">
+          <p class="text-xs font-bold text-neutral-600 uppercase tracking-widest mb-4">Trailing Icon</p>
+          <div class="flex flex-col gap-2.5">
+            <button class="btn btn-primary btn-md w-full">
+              Swap Now
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="btn btn-primary btn-md w-full">
+              Start Farming
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M8 2L10.5 7H14L11 10.5l1 4L8 12l-4 2.5 1-4L2 7h3.5L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="btn btn-secondary btn-md w-full">
+              View Docs
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M7 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V9M9 2h5v5M7 9l7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="btn btn-ghost btn-md w-full">
+              Learn More
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Icon only -->
+        <div class="preview-card sm:col-span-2 lg:col-span-1">
+          <p class="text-xs font-bold text-neutral-600 uppercase tracking-widest mb-4">Icon Only</p>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2 items-end">
+              <button class="btn btn-primary btn-icon-xs" title="Add"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              <button class="btn btn-primary btn-icon-sm" title="Add"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              <button class="btn btn-primary btn-icon-md" title="Add"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              <button class="btn btn-primary btn-icon-lg" title="Add"><svg class="w-5 h-5" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              <span class="text-xs text-neutral-600 font-semibold ml-1">Square</span>
+            </div>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button class="btn btn-primary btn-icon-md rounded-full" title="Add"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              <button class="btn btn-secondary btn-icon-md rounded-full" title="Swap"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 6h10M5 4l-2 2 2 2M13 10H3M11 8l2 2-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="btn btn-outline btn-icon-md rounded-full" title="Settings"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              <button class="btn btn-danger btn-icon-md rounded-full" title="Delete"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M3 5h10M6 5V3h4v2M7 8v4M9 8v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <span class="text-xs text-neutral-600 font-semibold ml-1">Round</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Full-width / Block ── -->
+    <section>
+      <h2 class="section-heading">Full Width</h2>
+      <p class="section-desc">Add <code>w-full</code> to make a button span the full width of its container.</p>
+      <div class="preview-card max-w-sm">
+        <div class="flex flex-col gap-3">
+          <button class="btn btn-primary btn-lg w-full">
+            <svg class="w-5 h-5" viewBox="0 0 16 16" fill="none"><path d="M3 6h10M5 4l-2 2 2 2M13 10H3M11 8l2 2-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Swap Tokens
+          </button>
+          <div class="grid grid-cols-2 gap-2">
+            <button class="btn btn-outline btn-md">Cancel</button>
+            <button class="btn btn-primary btn-md">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Context Example ── -->
+    <section>
+      <h2 class="section-heading">Example — Swap Card</h2>
+      <p class="section-desc">Buttons in a realistic DeFi swap interface context.</p>
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+
+        <!-- Swap Card Dark -->
+        <div class="bg-neutral-850 rounded-2xl p-5 border border-neutral-800 w-full max-w-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-neutral-300 uppercase tracking-widest">Swap</h3>
+            <div class="flex gap-1">
+              <button class="btn btn-ghost btn-icon-sm text-neutral-500 hover:text-neutral-300" title="Refresh">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1011.4-2.6M14 2v4h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="btn btn-ghost btn-icon-sm text-neutral-500 hover:text-neutral-300" title="Settings">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="bg-neutral-800 rounded-xl p-4 mb-2">
+            <p class="text-xs text-neutral-600 mb-1">From</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-neutral-50">1,000</span>
+              <button class="btn btn-outline btn-sm gap-1.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-blue-400 inline-block"></span>ADA
+                <svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-center my-1">
+            <button class="btn btn-outline btn-icon-sm rounded-full text-neutral-500 hover:text-brand-400 hover:border-brand-400">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M4 10l4 4 4-4M4 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="bg-neutral-800 rounded-xl p-4 mb-4">
+            <p class="text-xs text-neutral-600 mb-1">To</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-neutral-50">2,847</span>
+              <button class="btn btn-outline btn-sm gap-1.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-brand-400 inline-block"></span>MIN
+                <svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg w-full font-extrabold tracking-wide">
+            <svg class="w-5 h-5" viewBox="0 0 16 16" fill="none"><path d="M3 6h10M5 4l-2 2 2 2M13 10H3M11 8l2 2-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Swap Now
+          </button>
+        </div>
+
+        <!-- Wallet Connect Card -->
+        <div class="bg-neutral-850 rounded-2xl p-5 border border-neutral-800 w-full max-w-sm">
+          <h3 class="text-base font-bold text-neutral-50 mb-1">Connect Wallet</h3>
+          <p class="text-sm text-neutral-600 mb-5">Choose your Cardano wallet to continue.</p>
+          <div class="flex flex-col gap-2 mb-4">
+            <button class="btn btn-outline btn-md w-full justify-start gap-3 text-sm">
+              <span class="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">N</span>
+              Nami
+            </button>
+            <button class="btn btn-outline btn-md w-full justify-start gap-3 text-sm">
+              <span class="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-purple-400 text-xs font-bold">E</span>
+              Eternl
+            </button>
+            <button class="btn btn-outline btn-md w-full justify-start gap-3 text-sm">
+              <span class="w-6 h-6 rounded-md bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs font-bold">F</span>
+              Flint
+            </button>
+          </div>
+          <button class="btn btn-ghost btn-sm w-full text-neutral-600 hover:text-neutral-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            What is a wallet?
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Reference Table ── -->
+    <section class="pb-16">
+      <h2 class="section-heading">Reference</h2>
+      <div class="overflow-x-auto rounded-xl border border-neutral-800">
+        <table class="w-full text-sm text-left">
+          <thead>
+            <tr class="border-b border-neutral-800 bg-neutral-850">
+              <th class="px-4 py-3 font-semibold text-neutral-500 text-xs uppercase tracking-wider">Class</th>
+              <th class="px-4 py-3 font-semibold text-neutral-500 text-xs uppercase tracking-wider">Description</th>
+              <th class="px-4 py-3 font-semibold text-neutral-500 text-xs uppercase tracking-wider">Preview</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-800">
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-primary</code></td>
+              <td class="px-4 py-3 text-neutral-400">High-emphasis CTA. Brand lime background.</td>
+              <td class="px-4 py-3"><button class="btn btn-primary btn-xs">Button</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-secondary</code></td>
+              <td class="px-4 py-3 text-neutral-400">Medium emphasis. Transparent with brand border.</td>
+              <td class="px-4 py-3"><button class="btn btn-secondary btn-xs">Button</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-outline</code></td>
+              <td class="px-4 py-3 text-neutral-400">Low emphasis. Neutral border, muted text.</td>
+              <td class="px-4 py-3"><button class="btn btn-outline btn-xs">Button</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-ghost</code></td>
+              <td class="px-4 py-3 text-neutral-400">Minimal. No border, transparent background.</td>
+              <td class="px-4 py-3"><button class="btn btn-ghost btn-xs">Button</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-danger</code></td>
+              <td class="px-4 py-3 text-neutral-400">Destructive actions. Red background.</td>
+              <td class="px-4 py-3"><button class="btn btn-danger btn-xs">Button</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-xs / sm / md / lg / xl</code></td>
+              <td class="px-4 py-3 text-neutral-400">Height: 28 / 34 / 42 / 50 / 60px</td>
+              <td class="px-4 py-3 flex gap-1 items-end">
+                <button class="btn btn-outline btn-xs">xs</button>
+                <button class="btn btn-outline btn-sm">sm</button>
+                <button class="btn btn-outline btn-md">md</button>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-loading</code></td>
+              <td class="px-4 py-3 text-neutral-400">Loading state with spinner. Reduces opacity.</td>
+              <td class="px-4 py-3"><button class="btn btn-primary btn-xs btn-loading"><span class="spinner spinner-dark w-3 h-3"></span>Loading</button></td>
+            </tr>
+            <tr class="hover:bg-neutral-800/40 transition-colors">
+              <td class="px-4 py-3"><code class="text-brand-400 text-xs font-mono">btn-icon-*</code></td>
+              <td class="px-4 py-3 text-neutral-400">Equal width/height for icon-only buttons.</td>
+              <td class="px-4 py-3 flex gap-1 items-center">
+                <button class="btn btn-primary btn-icon-xs"><svg class="w-3 h-3" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+                <button class="btn btn-primary btn-icon-sm"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+                <button class="btn btn-primary btn-icon-md"><svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+
+</body>
+</html>
